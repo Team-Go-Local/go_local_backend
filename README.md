@@ -20,8 +20,8 @@ This App allows local town users create  travel experiences for their local city
 To use on your local machine please follow the instcutions below: 
 
 ```
-  git clone git@github.com:Team-Go-Local/go_local_frontend.git
-  cd go_local_frontend 
+  git clone git@github.com:Team-Go-Local/go_local_backend.git
+  cd go_local_backend
   bundle install 
   rake db:{create,migrate}
   run rails server 
