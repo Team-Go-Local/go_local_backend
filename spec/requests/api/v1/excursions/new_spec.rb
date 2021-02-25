@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe "excursions" do
   it "can create an excursions " do
+    require 'pry'; binding.pry
     user = create(:user)
-
     excursion_params = {
                       title: Faker::Coffee.blend_name, 
                       description: Faker::Coffee.notes,
-                      location: Faker::Address.city
-                      user_id: Faker::Number.number(digits: 2) 
+                      location: Faker::Address.city,
+                      user_id: user.id 
                        }
 
     headers = {"CONTENT_TYPE" => "application/json"}
