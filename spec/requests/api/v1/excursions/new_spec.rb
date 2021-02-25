@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "excursions" do
   it "can create an excursions " do
-    user = User.create(:user)
+    user = create(:user)
 
     excursion_params = {
                       title: Faker::Coffee.blend_name, 
@@ -15,7 +15,7 @@ describe "excursions" do
 
     post '/api/v1/excursions', headers: headers, params: JSON.generate(excursion_params)
 
-    created_excursions = Excursion.last
+    created_excursion = Excursion.last
 
     expect(response).to be_successful
     expect(response).to have_http_status(:created)
