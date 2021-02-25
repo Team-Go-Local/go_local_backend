@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :taggings do
+  factory :tagging do
     tag
-    excursions
+    excursion
   end
 end

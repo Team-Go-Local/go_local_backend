@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :favorites do
+  factory :favorite do
     excursion
     user
   end

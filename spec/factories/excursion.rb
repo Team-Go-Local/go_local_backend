@@ -1,8 +1,8 @@
 FactoryBot.define do
-  factory :excursions do
+  factory :excursion do
     title { Faker::Coffee.blend_name }
     description { Faker::Coffee.notes }
     location { Faker::Address.city }
-    user
+    user_id { Faker::Number.number(digits: 2) }
   end
 end
