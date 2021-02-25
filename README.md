@@ -33,7 +33,7 @@ Run with $ bundle exec rspec. All tests should be passing.
 You can also run $ bundle exec rspec /path
 
 ## Database Schema
-![image](linkimage)
+![go-local-be-db](https://user-images.githubusercontent.com/69552154/109088087-f83b3300-76cb-11eb-9482-bb1cad8fba84.png)
 
 ## Authors 
 -   Cydnee Owens | [github](https://github.com/cowens87) \| [linkedin](https://www.linkedin.com/in/cydnee-owens-5280/)
