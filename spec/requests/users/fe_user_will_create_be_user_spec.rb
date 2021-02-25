@@ -7,7 +7,7 @@ RSpec.describe User do
       # The ID should be created BASED ON the FE User
 
       id_to_test = 100
-      post "/users/id=#{id_to_test}"
+      post "/api/v1/users/#{id_to_test}"
 
       # Stub this post action to force us to go to User controller
       #THIS WILL HAPPEN User.create(id: params[:id])
