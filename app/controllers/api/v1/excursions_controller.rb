@@ -12,5 +12,4 @@ class Api::V1::ExcursionsController < ApplicationController
   def excursion_params
     params.require(:excursion).permit(:title, :description, :location, :user_id)
   end
-
 end

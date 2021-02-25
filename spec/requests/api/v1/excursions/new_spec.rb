@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "excursions" do
   it "can create an excursions " do
-    user = create(:user)
+    user = User.create(id: 1)
     excursion_params = {
                       title: Faker::Coffee.blend_name, 
                       description: Faker::Coffee.notes,
