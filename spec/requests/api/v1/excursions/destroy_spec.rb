@@ -13,3 +13,4 @@ require 'rails_helper'
       expect{Excursion.find(excursion.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
+
