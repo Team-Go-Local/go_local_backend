@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       namespace :users do  
         post '/:id/excursions', to: 'excursions#create'
         patch '/:id/excursions/:id', to: 'excursions#update'
+        delete '/:id/excursions/:id', to: 'excursions#destroy'
       end 
     end
   end

@@ -10,6 +10,6 @@ require 'rails_helper'
       expect(response).to be_successful
       expect(user.excursions.count).to eq(0)
       expect(response).to have_http_status(:no_content)
-      expect{Excursion.find(excursion)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{Excursion.find(excursion.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
