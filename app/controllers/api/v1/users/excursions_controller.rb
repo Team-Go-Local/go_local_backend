@@ -8,7 +8,6 @@ class Api::V1::Users::ExcursionsController < ApplicationController
   end
 
   def update
-    require 'pry'; binding.pry
     render json: ExcursionSerializer.new(Excursion.update(params[:id], excursion_params))
   end
 
