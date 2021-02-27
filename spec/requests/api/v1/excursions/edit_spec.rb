@@ -16,5 +16,19 @@ describe "excursions" do
     expect(response).to be_successful
     expect(updated_excursion.title).to_not eq(previous_name)
     expect(updated_excursion.title).to eq(excursion_params[:title])
-    end 
+  end 
+  
+  describe 'sad paths' do 
+    it 'will return an error if ID is not found' do
+      user = User.create(id: 1)
+
+      excursion_params = {title: "Excursion303"}
+      headers = {"CONTENT_TYPE" => "application/json"}
+
+      patch "/api/v1/users/#{user.id}/excursions/1", headers: headers, params: JSON.generate(excursion_params)
+
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(404)
+    end
   end
+end
