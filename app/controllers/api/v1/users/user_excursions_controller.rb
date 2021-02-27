@@ -1,4 +1,4 @@
-class Api::V1::Users::ExcursionsController < ApplicationController
+class Api::V1::Users::UserExcursionsController < ApplicationController
 
   def create 
     excursion = Excursion.new(excursion_params)
@@ -19,6 +19,6 @@ class Api::V1::Users::ExcursionsController < ApplicationController
   private 
 
   def excursion_params
-    params.require(:excursion).permit(:title, :description, :location, :user_id)
+    params.permit(:title, :description, :location, :user_id)
   end
 end
