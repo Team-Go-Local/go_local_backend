@@ -11,7 +11,7 @@ RSpec.describe Favorite do
       user1 = create(:user, id: 1)
       ex1 = create(:excursion, author_id: user1.id)
       favorite = create(:favorite, user: user1, excursion: ex1)
-      
+
       expect(favorite).to be_instance_of Favorite
     end
   end
