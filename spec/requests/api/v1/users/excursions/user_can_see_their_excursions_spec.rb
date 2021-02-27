@@ -8,9 +8,11 @@ describe "Users's Excursions Index Endpoint" do
 
       get "/api/v1/users/#{user}/excursions"
 
-      expect(response).to be_successful
       user_excursions = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(response).to be_successful
       expect(user_excursions.count).to eq(6)
+
       user_excursions.each do |user_excursion|
         check_hash_structure(user_excursion, :type, String)
 
