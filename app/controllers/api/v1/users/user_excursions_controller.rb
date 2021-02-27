@@ -1,5 +1,10 @@
 class Api::V1::Users::UserExcursionsController < ApplicationController
 
+  def index
+    user_excursion = Excursion.where(user_id: params[:id])
+    render json: ExcursionSerializer.new(user_excursion)
+  end
+  
   def create 
     excursion = Excursion.new(excursion_params)
     if excursion.save 
