@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Excursion do
@@ -22,5 +24,4 @@ RSpec.describe Excursion do
       expect(ex1).to be_instance_of Excursion
     end
   end
-
 end

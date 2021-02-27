@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User do
@@ -10,7 +12,7 @@ RSpec.describe User do
       post "/api/v1/users/#{id_to_test}"
 
       # Stub this post action to force us to go to User controller
-      #THIS WILL HAPPEN User.create(id: params[:id])
+      # THIS WILL HAPPEN User.create(id: params[:id])
       expect(User.find(id_to_test).id).to eq(100)
     end
   end
