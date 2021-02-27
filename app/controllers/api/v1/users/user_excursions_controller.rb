@@ -1,13 +1,12 @@
 class Api::V1::Users::UserExcursionsController < ApplicationController
-
   def index
     user_excursion = Excursion.where(user_id: params[:id])
     render json: ExcursionSerializer.new(user_excursion)
   end
-  
-  def create 
+
+  def create
     excursion = Excursion.new(excursion_params)
-    if excursion.save 
+    if excursion.save
       render json: ExcursionSerializer.new(Excursion.create(excursion_params)), status: :created
     end
   end
@@ -21,7 +20,7 @@ class Api::V1::Users::UserExcursionsController < ApplicationController
     head :no_content
   end
 
-  private 
+  private
 
   def excursion_params
     params.permit(:title, :description, :location, :user_id)
