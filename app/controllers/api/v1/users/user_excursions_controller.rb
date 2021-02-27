@@ -12,7 +12,11 @@ class Api::V1::Users::UserExcursionsController < ApplicationController
   end
 
   def update
-    render json: ExcursionSerializer.new(Excursion.update(params[:id], excursion_params))
+    begin 
+      render json: ExcursionSerializer.new(Excursion.update(params[:id], excursion_params))
+    rescue
+      render json: {"error" => {}}, status:404
+    end
   end
 
   def destroy
