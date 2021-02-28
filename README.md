@@ -38,7 +38,9 @@ You can also run $ bundle exec rspec /path
 ![go-local-be-db](https://user-images.githubusercontent.com/69552154/109088087-f83b3300-76cb-11eb-9482-bb1cad8fba84.png)
 
 ## API Exposed Endpoints
-#### Create Record
+### Place Search
+This endpoint takes query params and uses them to make an API call to the microservice. It then returns a JSON response.  
+### Create Record
 This endpoint creates a record and renders a JSON representation of that new record. 
 
 ![image](linktoimageforapiendpoint)
