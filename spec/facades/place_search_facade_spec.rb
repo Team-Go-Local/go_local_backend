@@ -18,6 +18,6 @@ describe 'PlaceSearchFacade' do
     title = "casa bonita"
     location = "Denver, CO"
 
-    expect(PlaceSearchFacade.place_details(title, location).body).to eq(fixture_json)
+    expect(PlaceSearchFacade.place_details(title, location)).to eq(fixture_json)
   end
 end
