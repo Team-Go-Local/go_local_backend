@@ -35,11 +35,13 @@ Run with $ bundle exec rspec. All tests should be passing.
 You can also run $ bundle exec rspec /path
 
 ## Database Schema
-![go-local-be-db](https://user-images.githubusercontent.com/69552154/109088087-f83b3300-76cb-11eb-9482-bb1cad8fba84.png)
+![go-local-database-schema-image](https://user-images.githubusercontent.com/68261312/109438062-62621980-79e5-11eb-9448-9bf129949b53.png)
 
 ## API Exposed Endpoints
 ### Place Search
-This endpoint takes query params and uses them to make an API call to the microservice. It then returns a JSON response.  
+This endpoint takes query params of `title` and `location`. It uses them to make an API call to the microservice. It then returns a JSON response.  
+### Place Details
+This endpoint takes query params of `place id`. It uses them to make an API call to the microservice. It then returns a JSON response.
 ### Create Record
 This endpoint creates a record and renders a JSON representation of that new record. 
 
