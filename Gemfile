@@ -11,18 +11,12 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
 gem 'rspec-rails'
 gem 'rubocop'
+gem 'fast_jsonapi'
+gem 'travis'
 
 
 group :development, :test do
-  gem 'capybara'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'fast_jsonapi'
-  gem 'orderly'
   gem 'pry'
-  gem 'shoulda-matchers'
-  gem 'simplecov'
-  gem 'travis'
 end
 
 
@@ -33,8 +27,14 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'launchy'
+  gem 'orderly'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'vcr'
   gem 'webmock'
 end
