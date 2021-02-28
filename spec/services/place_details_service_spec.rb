@@ -4,11 +4,11 @@ describe 'PlaceDetailsService' do
   it 'get_place_details' do
     fixture_json = File.read('spec/fixtures/place_details_result.json')
     place_id = "ChIJFaqhMyt_bIcRMfeTGF4E8kM"
-    stub_request(:get, "http://go-local-maps-api.herokuapp.com/api/v1/place_details?place_id=#{place_id}")
+    stub_request(:get, "https://go-local-maps-api.herokuapp.com/api/v1/place_details?place_id=#{place_id}").to_return(status: 200, body: fixture_json)
 
     expect(PlaceDetailsService.get_place_details(place_id)).to eq(fixture_json)
 
-    json_response = JSON.parse(PlaceSearchService.get_location_details(place_details), symbolize_names: true)[:data]
+    json_response = JSON.parse(PlaceDetailsService.get_place_details(place_id), symbolize_names: true)[:data]
 
     expect(json_response).to have_key(:attributes)
     expect(json_response[:attributes]).to have_key(:place_id)
