@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/users/:id', to: 'users#create'
       get '/place_search', to: 'place_search#receive_fe_request'
+      get '/place_details', to: 'place_details#details_request'
 
       namespace :users do
         get '/:id/excursions', to: 'user_excursions#index'
