@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'PlaceDetailsService' do
   it 'get_place_details' do
-    fixture_json = File.read('spec/fixtures/place_details_result.json')
+    fixture_json = File.read('spec/fixtures/place_details_results.json')
     place_id = "ChIJFaqhMyt_bIcRMfeTGF4E8kM"
     stub_request(:get, "https://go-local-maps-api.herokuapp.com/api/v1/place_details?place_id=#{place_id}").to_return(status: 200, body: fixture_json)
 
