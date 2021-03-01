@@ -1,7 +1,6 @@
-# Go Local-BE 
+# Go Local-Backend 
 
-![image](linktoimage)
-
+![pin-logo-big](https://user-images.githubusercontent.com/67389821/109405612-0fc22800-7927-11eb-862f-32b2a6e19d5e.png)
 
 ## Table of Contents
 
@@ -15,7 +14,7 @@
 
 ## Description 
 
-The Go Local App allows local town users to create travel experiences for their local city. Visitors can see the experiences, rate them and add recommendations. 
+This application allows local users to create travel experiences for their local city, that travel users can see, rate and recommend. The fictitious company utilizes a service-oriented architecture, and this as a separate back-end application.
 This portion of the application consumes data from the microservice application and exposes API endpoints for our frontend application.
 
 ## Installng 
@@ -31,19 +30,42 @@ To use on your local machine please follow the instcutions below:
 ```
 
 ## Running the Tests
-Run with $ bundle exec rspec. All tests should be passing.
-You can also run $ bundle exec rspec /path
+Run ``` bundle exec rspec.``` All tests should be passing.
+You can also run ``` bundle exec rspec /path```
 
 ## Database Schema
-![go-local-be-db](https://user-images.githubusercontent.com/69552154/109088087-f83b3300-76cb-11eb-9482-bb1cad8fba84.png)
+<img width="1004" alt="Screen Shot 2021-02-28 at 08 08 59" src="https://user-images.githubusercontent.com/67389821/109425256-48501900-799c-11eb-9c4b-5132422c37ed.png">
 
 ## API Exposed Endpoints
-#### Create Record
+#### Place Search Endpoint
 This endpoint creates a record and renders a JSON representation of that new record. 
 
 ![image](linktoimageforapiendpoint)
 
+This endpoint renders a JSON representation of all records of the requested resource.
 
+`GET /api/v1/<resource>` where `<resource>` is `merchants` or `items`
+
+Example JSON response:
+```json
+{
+    "data": {
+        "id": null,
+        "type": "place",
+        "attributes": {
+            "place_id": "ChIJE7tYRySHa4cRSauU_fDROfk",
+            "formatted_address": "6715 W Colfax Ave, Lakewood, CO 80214, United States",
+            "name": "Casa Bonita",
+            "types": [
+                "restaurant",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ]
+        }
+    }
+}
+```
 
 ## Authors 
 -   Cydnee Owens | [github](https://github.com/cowens87) \| [linkedin](https://www.linkedin.com/in/cydnee-owens-5280/)
