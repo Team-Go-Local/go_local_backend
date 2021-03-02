@@ -9,7 +9,8 @@ describe 'excursions' do
                           title: Faker::Coffee.blend_name,
                           description: Faker::Coffee.notes,
                           location: Faker::Address.city,
-                          user_id: user.id
+                          user_id: user.id,
+                          place_id: '989aqdjlojfaonflqikjf'
                         }
 
     headers = { 'CONTENT_TYPE' => 'application/json' }
@@ -24,5 +25,6 @@ describe 'excursions' do
     expect(created_excursion.description).to eq(excursion_params[:description])
     expect(created_excursion.location).to eq(excursion_params[:location])
     expect(created_excursion.user_id).to eq(excursion_params[:user_id])
+    expect(created_excursion.place_id).to eq(excursion_params[:place_id])
   end
 end

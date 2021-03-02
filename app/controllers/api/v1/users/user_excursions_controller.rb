@@ -25,6 +25,6 @@ class Api::V1::Users::UserExcursionsController < ApplicationController
   private
 
   def excursion_params
-    params.permit(:title, :description, :location, :user_id)
+    params.permit(:title, :description, :location, :user_id, :place_id)
   end
 end
