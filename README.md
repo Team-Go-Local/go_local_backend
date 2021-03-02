@@ -34,10 +34,16 @@ Run ``` bundle exec rspec.``` All tests should be passing.
 You can also run ``` bundle exec rspec /path```
 
 ## Database Schema
+
 <img width="1004" alt="Screen Shot 2021-02-28 at 08 08 59" src="https://user-images.githubusercontent.com/67389821/109425256-48501900-799c-11eb-9c4b-5132422c37ed.png">
 
 ## API Exposed Endpoints
-#### Place Search Endpoint
+### Place Search
+This endpoint takes query params of `title` and `location`. It uses them to make an API call to the microservice. It then returns a JSON response.  
+### Place Details
+This endpoint takes query params of `place id`. It uses them to make an API call to the microservice. It then returns a JSON response.
+### Create Record
+
 This endpoint creates a record and renders a JSON representation of that new record. 
 
 ![image](linktoimageforapiendpoint)
