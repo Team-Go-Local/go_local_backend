@@ -5,8 +5,7 @@ class Api::V1::Users::UserExcursionsController < ApplicationController
   end
 
   def create
-    excursion = Excursion.new(excursion_params)
-    render json: ExcursionSerializer.new(Excursion.create(excursion_params)), status: :created if excursion.save
+    render json: ExcursionSerializer.new(Excursion.create(excursion_params)), status: :created 
   end
 
   def update
