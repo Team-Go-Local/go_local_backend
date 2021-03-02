@@ -22,4 +22,13 @@ describe 'Excursions Show Endpoint' do
       check_hash_structure(excursion_details, :user_id, Integer)
     end
   end
+  describe 'sad path' do
+    it 'rendes error message if microservice is down' do
+      place_id = 1
+
+      stub_request(:get, "https://go-local-maps-api.herokuapp.com/api/v1/place_details?#{place_id}").to_return(status: 404)
+
+      expect(response).to eq(nil)
+    end
+  end
 end
