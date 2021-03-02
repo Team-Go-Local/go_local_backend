@@ -4,5 +4,6 @@ FactoryBot.define do
     description { Faker::Coffee.notes }
     location { Faker::Address.city }
     user_id { Faker::Number.number(digits: 2) }
+    place_id { "jkfal#{(0..9).to_a.sample(10).join(',').delete(',').to_s}" }
   end
 end
