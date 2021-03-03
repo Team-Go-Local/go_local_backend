@@ -15,7 +15,7 @@ describe 'excursions' do
 
     headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    post "/api/v1/users/#{user.id}/excursions", headers: headers, params: JSON.generate(excursion_params)
+    post "/api/v1/users/#{user.id}/excursions", headers: headers, params: JSON.generate(excursion: excursion_params)
 
     created_excursion = Excursion.last
 
