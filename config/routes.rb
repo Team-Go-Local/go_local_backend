@@ -7,10 +7,10 @@ Rails.application.routes.draw do
       post '/favorites', to: 'favorites#add_favorite'
 
       namespace :users do
-        get '/:id/excursions', to: 'user_excursions#index'
-        post '/:id/excursions', to: 'user_excursions#create'
-        patch '/:id/excursions/:id', to: 'user_excursions#update'
-        delete '/:id/excursions/:id', to: 'user_excursions#destroy'
+        get '/:id/excursions', to: 'excursions#index'
+        post '/:id/excursions', to: 'excursions#create'
+        patch '/:id/excursions/:id', to: 'excursions#update'
+        delete '/:id/excursions/:id', to: 'excursions#destroy'
       end
 
       resources :excursions, only: [:index, :show]
