@@ -1,4 +1,4 @@
-class Api::V1::Users::UserExcursionsController < ApplicationController
+class Api::V1::Users::ExcursionsController < ApplicationController
   def index
     user_excursion = Excursion.where(user_id: params[:id])
     render json: ExcursionSerializer.new(user_excursion)
