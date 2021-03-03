@@ -5,7 +5,7 @@ class Api::V1::Users::UserExcursionsController < ApplicationController
   end
 
   def create
-    render json: ExcursionSerializer.new(Excursion.create(excursion_params)), status: :created 
+    render json: ExcursionSerializer.new(Excursion.create(excursion_params)), status: :created
   end
 
   def update
@@ -24,6 +24,6 @@ class Api::V1::Users::UserExcursionsController < ApplicationController
   private
 
   def excursion_params
-    params.permit(:title, :description, :location, :user_id, :place_id)
+    params.require(:excursion).permit(:title, :description, :location, :user_id, :place_id)
   end
 end
