@@ -27,4 +27,17 @@ describe 'excursions' do
     expect(created_excursion.user_id).to eq(excursion_params[:user_id])
     expect(created_excursion.place_id).to eq(excursion_params[:place_id])
   end
+
+  it 'adds the nearest city upon creation' do
+    user = create(:user)
+    excursion_params = attributes_for(:excursion, user_id: user.id).merge(coordinates: '29.9754713-90.0851898')
+    headers = { 'CONTENT_TYPE' => 'application/json' }
+
+    post "/api/v1/users/#{user.id}/excursions", headers: headers, params: JSON.generate(excursion: excursion_params)
+
+    created_excursion = Excursion.last
+    expect(response).to be_successful
+    expect(response).to have_http_status(:created)
+    expect(created_excursion.nearest_city).to eq('New Orleans, LA')
+  end
 end
