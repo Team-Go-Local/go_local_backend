@@ -1,7 +1,9 @@
 class Api::V1::ExcursionsController < ApplicationController
   def index
     excursions = Excursion.all
-    render json: ExcursionSerializer.new(excursions)
+    options = {}
+    options[:meta] = { cities: Excursion.cities}
+    render json: ExcursionSerializer.new(excursions, options)
   end
 
   def show
