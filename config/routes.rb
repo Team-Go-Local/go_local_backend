@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post '/favorites', to: 'favorites#add_favorite'
       
       namespace :users do
-        get '/:d/favorites', to: 'user_favorites#index'
+        get '/:id/favorites', to: 'user_favorites#index'
         get '/:id/excursions', to: 'user_excursions#index'
         post '/:id/excursions', to: 'user_excursions#create'
         patch '/:id/excursions/:id', to: 'user_excursions#update'
@@ -18,3 +18,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+
