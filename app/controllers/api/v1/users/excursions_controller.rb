@@ -11,11 +11,9 @@ class Api::V1::Users::ExcursionsController < ApplicationController
   end
 
   def update
-    begin
-      render json: ExcursionSerializer.new(Excursion.update(params[:id], excursion_params))
-    rescue
-      render json: { error: {} }, status: 404
-    end
+    render json: ExcursionSerializer.new(Excursion.update(params[:id], excursion_params))
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: {} }, status: :not_found
   end
 
   def destroy

@@ -1,5 +1,5 @@
 class Excursion < ApplicationRecord
-  validates_presence_of :title, :description, :location
+  validates :title, :description, :location, presence: true
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
