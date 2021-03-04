@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
       Date:
-      - Thu, 04 Mar 2021 01:44:08 GMT
+      - Thu, 04 Mar 2021 05:14:52 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: '{"data":{"id":null,"type":"city","attributes":{"name":"Denver","state":"CO"}}}'
-  recorded_at: Thu, 04 Mar 2021 01:44:09 GMT
+  recorded_at: Thu, 04 Mar 2021 05:14:52 GMT
 recorded_with: VCR 6.0.0
