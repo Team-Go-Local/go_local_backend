@@ -21,7 +21,7 @@ RSpec.describe CityService do
   end
 
   it 'returns null if no city is found' do
-    VCR.use_cassette('rutland') do
+    VCR.use_cassette('rural_area') do
       coordinates = '43.6065-72.9794'
       data = CityService.nearest_city(coordinates)
 
