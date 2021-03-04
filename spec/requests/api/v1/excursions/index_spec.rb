@@ -27,4 +27,25 @@ describe 'Excursions Index Endpoint' do
       end
     end
   end
+
+  describe 'city search' do
+    it 'returns a list of available cities with the response' do
+      create_list(:excursion, 2, nearest_city: 'Chicago, IL')
+      create(:excursion, nearest_city: 'Philadelphia, PA')
+      create_list(:excursion, 2, nearest_city: 'San Antonio, TX')
+      create(:excursion, nearest_city: 'Austin, TX')
+
+      get '/api/v1/excursions'
+
+      expect(response).to be_successful
+      body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(body).to have_key(:meta)
+      expect(body[:meta]).to be_a(Hash)
+      expect(body[:meta]).to have_key(:cities)
+      expect(body[:meta][:cities]).to be_an(Array)
+      cities = ['Chicago, IL', 'Philadelphia, PA', 'San Antonio, TX', 'Austin, TX']
+      expect(body[:meta][:cities]).to match_array(cities)
+    end
+  end
 end
