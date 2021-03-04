@@ -13,11 +13,12 @@ class Api::V1::ExcursionsController < ApplicationController
   def show
     excursion = Excursion.find(params[:id])
     place_details = PlaceDetailsService.get_place_details(excursion.place_id)
-    poro = ExcursionDetails.new(place_details, excursion)
-    begin
-      render json: ExcursionDetailsSerializer.new(poro)
-    rescue
-      render json: {errors: user.errors.full_messages.uniq.to_sentence}, status: 404
-    end
+    excursion_details = ExcursionDetails.new(place_details, excursion)
+    render json: ExcursionDetailsSerializer.new(excursion_details)
+  rescue JSON::ParserError
+    render json: { errors: [
+      'the request could not be completed',
+      'external Places API unavailable'
+    ] }, status: :not_found
   end
 end
