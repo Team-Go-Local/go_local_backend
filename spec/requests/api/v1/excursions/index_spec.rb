@@ -47,5 +47,44 @@ describe 'Excursions Index Endpoint' do
       cities = ['Chicago, IL', 'Philadelphia, PA', 'San Antonio, TX', 'Austin, TX']
       expect(body[:meta][:cities]).to match_array(cities)
     end
+
+    it 'returns a list of cities excursions filtered by city' do
+      austin = create_list(:excursion, 2, nearest_city: 'Austin, TX')
+      not_austin = [create(:excursion, nearest_city: 'Chicago, IL'),
+                    create(:excursion, nearest_city: 'Philadelphia, PA'),
+                    create(:excursion, nearest_city: 'San Antonio, TX')
+                    ]
+
+      get '/api/v1/excursions?city=Austin,%20TX'
+
+      expect(response).to be_successful
+      body = JSON.parse(response.body, symbolize_names: true)
+      expect(body).to be_a(Hash)
+      expect(body).to have_key(:data)
+      expect(body).to have_key(:meta)
+      expect(body.keys).to match_array(%i[data meta])
+      expect(body[:data]).to be_an(Array)
+      expect(body[:data][0]).to be_a(Hash)
+      expect(body[:data][0]).to have_key(:id)
+      expect(body[:data][0][:id]).to be_a(Numeric)
+      expect(body[:data][0]).to have_key(:type)
+      expect(body[:data][0][:type]).to eq('excursion')
+      expect(body[:data][0]).to have_key(:attributes)
+      expect(body[:data][0][:attributes]).to be_a(Hash)
+      expect(body[:data][0][:attributes]).to have_key(:title)
+      expect(body[:data][0][:attributes]).to have_key(:description)
+      expect(body[:data][0][:attributes]).to have_key(:location)
+      expect(body[:data][0][:attributes]).to have_key(:user_id)
+      expect(body[:data][0][:attributes]).to have_key(:place_id)
+      expect(body[:data][0][:attributes]).to have_key(:nearest_city)
+      all_austin = body[:data].all? do |exc|
+        exc[:attributes][:nearest_city] == 'Austin, TX'
+      end
+      expect(all_austin).to be true
+      expect(body[:meta]).to be_a(Hash)
+      expect(body[:meta]).to have_key(:cities)
+      expect(body[:meta][:cities]).to be_an(Array)
+      expect(body[:meta][:cities]).to eq(['Austin, TX'])
+    end
   end
 end
