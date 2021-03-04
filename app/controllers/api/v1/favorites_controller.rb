@@ -1,11 +1,11 @@
-class Api::V1::FavoritesController < ApplicationController
-  def add_favorite
-    render json: FavoriteSerializer.new(Favorite.create(favorite_params))
-  end
+# class Api::V1::FavoritesController < ApplicationController
+#   def add_favorite
+#     render json: FavoriteSerializer.new(Favorite.create(favorite_params))
+#   end
 
-  private
+#   private
 
-  def favorite_params
-    params.permit(:user_id, :excursion_id)
-  end
-end
+#   def favorite_params
+#     params.permit(:user_id, :excursion_id)
+#   end
+# end

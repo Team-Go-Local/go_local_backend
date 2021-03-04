@@ -26,7 +26,7 @@ RSpec.describe Favorite do
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post "/api/v1/favorites?user_id=#{traveler.id}&excursion_id=#{excursion2.id}", headers: headers, params: JSON.generate(excursion2)
+      post "/api/v1/users/#{traveler.id}/favorites/#{excursion2.id}", headers: headers, params: JSON.generate(excursion2)
 
       expect(Favorite.count).to eq(1)
       expect(traveler.favorites.count).to eq(1)
