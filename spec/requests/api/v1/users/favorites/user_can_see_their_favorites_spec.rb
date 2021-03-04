@@ -20,23 +20,44 @@ RSpec.describe Favorite do
                     user_id: local_id,
                     place_id: '385464jlojfaonfljhf'
                 })
+      excursion3 = Excursion.create({
+                    title: 'Yummy Belly Tea',
+                    description: 'Tea Shop',
+                    location: 'Santa Cruz, CA',
+                    user_id: local_id,
+                    place_id: '385464jlojfaonfljhf'
+                })
       traveler   = User.create(id: 2)
-      favorite   = Favorite.create(user_id: traveler.id, excursion_id: excursion2.id)
+      Favorite.create(user_id: traveler.id, excursion_id: excursion2.id)
+      Favorite.create(user_id: traveler.id, excursion_id: excursion3.id)
 
       get "/api/v1/users/#{traveler.id}/favorites"
 
       expect(response).to be_successful
-      expect(traveler.favorites.count).to eq(1)
+      favorites = JSON.parse(response.body, symbolize_names: true)
 
-      traveler_favorites = Favorite.where(user_id: traveler.id)
-    
-      traveler_favorites.each do |favorite|
-        
-        favorite_excursion = favorite.excursion
-
-        expect(favorite_excursion.title).to eq(excursion2[:title])
-        expect(favorite_excursion.description).to eq(excursion2[:description])
-      end
+      expect(favorites).to be_a(Hash)
+      expect(favorites).to have_key(:data)
+      expect(favorites).to have_key(:meta)
+      expect(favorites.keys).to match_array(%i[data meta])
+      expect(favorites[:data]).to be_an(Array)
+      expect(favorites[:data].size).to eq(2)
+      expect(favorites[:data][0]).to be_a(Hash)
+      expect(favorites[:data][0]).to have_key(:id)
+      expect(favorites[:data][0][:id]).to be_a(String)
+      expect(favorites[:data][0]).to have_key(:type)
+      expect(favorites[:data][0][:type]).to eq('excursion')
+      expect(favorites[:data][0]).to have_key(:attributes)
+      expect(favorites[:data][0][:attributes]).to be_a(Hash)
+      expect(favorites[:data][0][:attributes]).to have_key(:title)
+      expect(favorites[:data][0][:attributes]).to have_key(:description)
+      expect(favorites[:data][0][:attributes]).to have_key(:location)
+      expect(favorites[:data][0][:attributes]).to have_key(:user_id)
+      expect(favorites[:data][0][:attributes]).to have_key(:place_id)
+      expect(favorites[:data][0][:attributes]).to have_key(:nearest_city)
+      expect(favorites[:meta]).to be_a(Hash)
+      expect(favorites[:meta]).to have_key(:cities)
+      expect(favorites[:meta][:cities]).to be_an(Array)
     end
   end
 end
