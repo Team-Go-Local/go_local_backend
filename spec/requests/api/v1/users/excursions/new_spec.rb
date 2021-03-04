@@ -4,13 +4,15 @@ require 'rails_helper'
 
 describe 'excursions' do
   it 'can create an excursions ' do
+    allow(ExcursionsFacade).to receive(:nearest_city)
     user = User.create(id: 1)
     excursion_params = {
                           title: Faker::Coffee.blend_name,
                           description: Faker::Coffee.notes,
                           location: Faker::Address.city,
                           user_id: user.id,
-                          place_id: '989aqdjlojfaonflqikjf'
+                          place_id: '989aqdjlojfaonflqikjf',
+                          coordinates: '(29.9754713, -90.0851898)'
                         }
 
     headers = { 'CONTENT_TYPE' => 'application/json' }
@@ -29,8 +31,9 @@ describe 'excursions' do
   end
 
   it 'adds the nearest city upon creation' do
+    allow(ExcursionsFacade).to receive(:nearest_city).and_return('New Orleans, LA')
     user = create(:user)
-    excursion_params = attributes_for(:excursion, user_id: user.id).merge(coordinates: '29.9754713-90.0851898')
+    excursion_params = attributes_for(:excursion, user_id: user.id).merge(coordinates: "(29.9754713, -90.0851898)")
     headers = { 'CONTENT_TYPE' => 'application/json' }
 
     post "/api/v1/users/#{user.id}/excursions", headers: headers, params: JSON.generate(excursion: excursion_params)
