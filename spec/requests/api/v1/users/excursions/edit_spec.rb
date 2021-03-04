@@ -11,15 +11,15 @@ describe 'excursions' do
     excursion_params = { title: 'Excursion303' }
     headers = { 'CONTENT_TYPE' => 'application/json' }
 
-    patch "/api/v1/users/#{user.id}/excursions/#{excursion.id}", headers: headers, params: JSON.generate(excursion_params)
+    patch "/api/v1/users/#{user.id}/excursions/#{excursion.id}", headers: headers, params: JSON.generate(excursion: excursion_params)
 
     updated_excursion = Excursion.find_by(id: excursion.id)
     expect(response).to be_successful
     expect(updated_excursion.title).to_not eq(previous_name)
     expect(updated_excursion.title).to eq(excursion_params[:title])
-  end 
-  
-  describe 'sad paths' do 
+  end
+
+  describe 'sad paths' do
     it 'will return an error if ID is not found' do
       user = User.create(id: 1)
 
