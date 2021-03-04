@@ -4,9 +4,9 @@ Rails.application.routes.draw do
       post '/users/:id', to: 'users#create'
       get '/place_search', to: 'place_search#place_search_request'
       get '/place_details', to: 'place_details#details_request'
-      post '/favorites', to: 'favorites#add_favorite'
       
       namespace :users do
+        post '/:id/favorites/:excursion_id', to: 'favorites#add_favorite'
         get '/:id/favorites', to: 'favorites#index'
         get '/:id/excursions', to: 'excursions#index'
         post '/:id/excursions', to: 'excursions#create'
