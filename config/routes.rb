@@ -5,8 +5,9 @@ Rails.application.routes.draw do
       get '/place_search', to: 'place_search#place_search_request'
       get '/place_details', to: 'place_details#details_request'
       post '/favorites', to: 'favorites#add_favorite'
-
+      
       namespace :users do
+        get '/:id/favorites', to: 'favorites#index'
         get '/:id/excursions', to: 'excursions#index'
         post '/:id/excursions', to: 'excursions#create'
         patch '/:id/excursions/:id', to: 'excursions#update'
@@ -17,3 +18,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+
