@@ -1,7 +1,13 @@
 class Api::V1::ExcursionsController < ApplicationController
   def index
-    excursions = Excursion.all
-    render json: ExcursionSerializer.new(excursions)
+    excursions = if params[:city]
+                    Excursion.where(nearest_city: params[:city])
+                  else
+                    Excursion.all
+                  end
+    options = {}
+    options[:meta] = { cities: excursions.cities}
+    render json: ExcursionSerializer.new(excursions, options)
   end
 
   def show
