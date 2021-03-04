@@ -59,14 +59,16 @@ describe 'Excursions Index Endpoint' do
 
       expect(response).to be_successful
       body = JSON.parse(response.body, symbolize_names: true)
+
       expect(body).to be_a(Hash)
       expect(body).to have_key(:data)
       expect(body).to have_key(:meta)
       expect(body.keys).to match_array(%i[data meta])
       expect(body[:data]).to be_an(Array)
+      expect(body[:data].size).to eq(2)
       expect(body[:data][0]).to be_a(Hash)
       expect(body[:data][0]).to have_key(:id)
-      expect(body[:data][0][:id]).to be_a(Numeric)
+      expect(body[:data][0][:id]).to be_a(String)
       expect(body[:data][0]).to have_key(:type)
       expect(body[:data][0][:type]).to eq('excursion')
       expect(body[:data][0]).to have_key(:attributes)
