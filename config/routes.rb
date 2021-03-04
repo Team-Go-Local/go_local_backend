@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       
       namespace :users do
         post '/:user_id/favorites/:excursion_id', to: 'favorites#add_favorite'
+        delete '/:user_id/favorites/:excursion_id', to: 'favorites#delete_favorite'
         get '/:id/favorites', to: 'favorites#index'
         get '/:id/excursions', to: 'excursions#index'
         post '/:id/excursions', to: 'excursions#create'
