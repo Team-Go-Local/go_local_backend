@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get '/place_details', to: 'place_details#details_request'
       
       namespace :users do
-        post '/:id/favorites/:excursion_id', to: 'favorites#add_favorite'
+        post '/:user_id/favorites/:excursion_id', to: 'favorites#add_favorite'
         get '/:id/favorites', to: 'favorites#index'
         get '/:id/excursions', to: 'excursions#index'
         post '/:id/excursions', to: 'excursions#create'
