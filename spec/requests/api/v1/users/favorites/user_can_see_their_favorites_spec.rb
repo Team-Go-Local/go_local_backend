@@ -20,6 +20,7 @@ RSpec.describe Favorite do
                     user_id: local_id,
                     place_id: '385464jlojfaonfljhf'
                 })
+
       excursion3 = Excursion.create({
                     title: 'Yummy Belly Tea',
                     description: 'Tea Shop',
