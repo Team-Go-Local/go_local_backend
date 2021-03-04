@@ -9,13 +9,13 @@ describe 'Excursions Show Endpoint' do
         place_id = "ChIJFaqhMyt_bIcRMfeTGF4E8kM"
         user = create(:user, id: 1)
         excursion = create(:excursion, user_id: user.id, place_id: place_id)
-  
+
         get "/api/v1/excursions/#{excursion.id}"
-  
+
         json_response = JSON.parse(response.body, symbolize_names: true)[:data]
-  
+
         expect(response.status).to eq(200)
-        
+
         expect(json_response).to have_key(:attributes)
         expect(json_response[:attributes]).to have_key(:place_id)
         expect(json_response[:attributes][:place_id]).to be_a(String)
@@ -42,13 +42,26 @@ describe 'Excursions Show Endpoint' do
       end
     end
   end
+
   describe 'sad path' do
     it 'rendes error message if microservice is down' do
-      place_id = 1
+      place_id = "ChIJFaqhMyt_bIcRMfeTGF4E8kM"
+      user = create(:user, id: 1)
+      excursion = create(:excursion, user_id: user.id, place_id: place_id)
 
-      stub_request(:get, "https://go-local-maps-api.herokuapp.com/api/v1/place_details?#{place_id}").to_return(status: 404)
+      stub_request(:get, "https://go-local-maps-api.herokuapp.com/api/v1/place_details?place_id=#{place_id}").to_return(status: 404)
 
-      expect(response).to eq(nil)
+      get "/api/v1/excursions/#{excursion.id}"
+
+      expect(response.status).to eq(404)
+
+      json_response = JSON.parse(response.body, symbolize_names: true)
+
+      expect(json_response).to be_a(Hash)
+      expect(json_response).to have_key(:errors)
+      expect(json_response[:errors]).to be_an(Array)
+      expect(json_response[:errors][0]).to eq('the request could not be completed')
+      expect(json_response[:errors][1]).to eq('external Places API unavailable')
     end
   end
 end

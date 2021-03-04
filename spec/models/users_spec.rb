@@ -19,4 +19,17 @@ RSpec.describe User do
       expect(user1).to be_instance_of User
     end
   end
+
+  describe 'favorite excursions' do
+    it 'gets the user\'s favorited excursions' do
+      user = create(:user)
+      favorites = create_list(:excursion, 2)
+      favorites.each do |excursion|
+        create(:favorite, user: user, excursion: excursion)
+      end
+      not_favorite = create(:excursion)
+
+      expect(user.saved_excursions).to match_array(favorites)
+    end
+  end
 end

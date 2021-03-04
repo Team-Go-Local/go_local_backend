@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'receive_fe_request' do
   it 'receive place search request from FE & return response from microservice as is' do\
     VCR.use_cassette("place_search") do
-      be_search_details = "casa-bonita-Denver-CO"
+      be_search_details = "casa-bonita-denver-co"
       get "/api/v1/place_search?title=casa%20bonita&location=Denver,%20CO"
       json_response = JSON.parse(response.body, symbolize_names: true)[:data]
 

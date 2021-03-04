@@ -1,6 +1,6 @@
 class Api::V1::FavoritesController < ApplicationController
   def add_favorite
-    render json: FavoriteSerializer.new(Favorite.create(favorite_params)) 
+    render json: FavoriteSerializer.new(Favorite.create(favorite_params))
   end
 
   private

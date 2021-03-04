@@ -12,10 +12,10 @@ class ExcursionDetails
               :website,
               :business_status,
               :opening_hours
-  
+
   def initialize(json_data, excursion)
     @id = excursion.id
-    #Json Data
+    # Json Data
     @place_id = json_data[:data][:attributes][:place_id]
     @formatted_address = json_data[:data][:attributes][:formatted_address]
     @name = json_data[:data][:attributes][:name]
@@ -24,7 +24,7 @@ class ExcursionDetails
     @website = json_data[:data][:attributes][:website]
     @opening_hours = json_data[:data][:attributes][:opening_hours]
     @business_status = json_data[:data][:attributes][:business_status]
-    #Excursion Data
+    # Excursion Data
     @title = excursion.title
     @description = excursion.description
     @updated_at = excursion.updated_at

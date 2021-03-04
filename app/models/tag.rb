@@ -1,5 +1,5 @@
 class Tag < ApplicationRecord
-  validates_presence_of :name
+  validates :name, presence: true
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
 end

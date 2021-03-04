@@ -11,7 +11,7 @@ RSpec.describe Tagging do
   describe 'instantiation' do
     it 'exists with attributes' do
       user1 = create(:user, id: 1)
-      ex1 = create(:excursion, author_id: user1.id)
+      ex1 = create(:excursion, user_id: user1.id)
       tagging = create(:tagging, excursion_id: ex1.id)
 
       expect(tagging).to be_instance_of Tagging
