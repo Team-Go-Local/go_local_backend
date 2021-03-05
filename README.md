@@ -5,7 +5,7 @@
 ## Table of Contents
 
 -   [Description](#description)
--   [System Design](#database-schema)
+-   [System Design](#system-design)
 -   [Database Schema](#database-schema)
 -   [API Contract](#api-contract)
 -   [Technologies Used](#technologies-used)
