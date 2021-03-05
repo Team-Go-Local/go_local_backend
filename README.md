@@ -5,7 +5,8 @@
 ## Table of Contents
 
 -   [Description](#description)
--   [Database Schema](#database_schema)
+-   [System Design](#database-schema)
+-   [Database Schema](#database-schema)
 -   [API Contract](#api-contract)
 -   [Technologies Used](#technologies-used)
 -   [Local Setup](#local-setup)
@@ -25,11 +26,11 @@ This repository houses the back-end Rails app.
 ### To view the deployed application, please visit [Go Local](https://go-local-fe.herokuapp.com) on Heroku
 
 ## System Design
-<img src="app/assets/system.png">
+<img src="app/assets/system.png" width="700">
 
 ## Database Schema
 
-<img width="750" alt="Screen Shot 2021-02-28 at 08 08 59" src="app/assets/schema.png">
+<img width="500" alt="Screen Shot 2021-02-28 at 08 08 59" src="app/assets/schema.png">
 
 ## API Contract
 
