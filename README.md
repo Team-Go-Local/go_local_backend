@@ -26,7 +26,7 @@ This repository houses the back-end Rails app.
 
 ## Database Schema
 
-<img width="1004" alt="Screen Shot 2021-02-28 at 08 08 59" src="https://user-images.githubusercontent.com/67389821/109425256-48501900-799c-11eb-9c4b-5132422c37ed.png">
+<img width="1004" alt="Screen Shot 2021-02-28 at 08 08 59" src="app/assets/schema.png">
 
 ## API Contract
 
@@ -143,7 +143,6 @@ This portion of the application exposes 12 endpoints that allow our front-end ap
 - Rails v. 5.2.4
 - Ruby v. 2.5.3
 - PostgreSQL
-- Sinatra
 - Heroku
 - Travis-CI
 - Dependencies:
@@ -153,7 +152,6 @@ This portion of the application exposes 12 endpoints that allow our front-end ap
   - RSpec
   - FactoryBot
   - Faker
-  - Capybara
   - SimpleCov
   - Webmock
   - VCR
@@ -163,7 +161,7 @@ This portion of the application exposes 12 endpoints that allow our front-end ap
 
   1. Clone the repository:<br>
     `git clone git@github.com:Team-Go-Local/go_local_backend.git`
-    `cd go_local_cities_api`
+    `cd go_local_backend`
   2. Install gem packages<br>
     `bundle install`
   3. Create the database<br>
@@ -191,8 +189,8 @@ This portion of the application exposes 12 endpoints that allow our front-end ap
 -   Isabelle Villasenor | [github](https://github.com/isabellevillasenor) \| [linkedin](https://www.linkedin.com/in/isabelle-villasenor/)
 -   Saundra Catalina | [github](https://github.com/saundracatalina) \| [linkedin](https://www.linkedin.com/in/saundra-catalina/)
 -   Sam Yeo | [github](https://github.com/SK-Sam) \| [linkedin](https://www.linkedin.com/in/samuel-horishin-yeo/)
--   V Arruda | [github](https://github.com/nessarruda) \| [linkedin](https://www.linkedin.com/in/vanessa-alves-de-arruda/)
--   Yesi Meza | [github](https://github.com/SK-Sam) \| [linkedin](https://www.linkedin.com/in/yesimeza/)
+-   V Arruda | [github](https://github.com/nessaarruda) \| [linkedin](https://www.linkedin.com/in/vanessa-alves-de-arruda/)
+-   Yesi Meza | [github](https://github.com/Yesi-MC) \| [linkedin](https://www.linkedin.com/in/yesimeza/)
 
 ## Statistics
 <!-- Shields -->
