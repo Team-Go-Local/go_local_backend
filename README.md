@@ -22,11 +22,14 @@ Go Local allows travelers to experience their destinations like a local by invit
 
 This repository houses the back-end Rails app.
 
-#### To view the deployed application, please visit [Go Local](https://go-local-fe.herokuapp.com) on Heroku
+### To view the deployed application, please visit [Go Local](https://go-local-fe.herokuapp.com) on Heroku
+
+## System Design
+<img src="app/assets/system.png">
 
 ## Database Schema
 
-<img width="1004" alt="Screen Shot 2021-02-28 at 08 08 59" src="app/assets/schema.png">
+<img width="750" alt="Screen Shot 2021-02-28 at 08 08 59" src="app/assets/schema.png">
 
 ## API Contract
 
